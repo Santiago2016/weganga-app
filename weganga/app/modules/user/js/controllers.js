@@ -9,9 +9,9 @@ angular.module('weganga.user.controllers', []).controller('UserController', ['$s
         $scope.logueado = false;
     }
 
-    if ($cookieStore.get('user') != null && $cookieStore.get('user').role != 'ROLE_CLIENT'){
+    if ($cookieStore.get('user') != null && $cookieStore.get('user').role != 'ROLE_CLIENTE') {
         $scope.nouser = true;
-    }else{
+    } else {
         $scope.nouser = false;
     }
 
@@ -33,28 +33,60 @@ angular.module('weganga.user.controllers', []).controller('UserController', ['$s
     }, function (err) {
         $scope.err = err;
     });
+
+    $scope.buscar = function () {
+        if ($scope.valor != '') {
+            $http.get('http://localhost:8080/Weganga/web/app_dev.php/api/offers/users/filter/' + $scope.valor).then(function (response) {
+                var resp = response.data;
+                $scope.ofertas = resp.offers;
+            }, function (err) {
+                $scope.err = err;
+            });
+        }else{
+            $http.get('http://localhost:8080/Weganga/web/app_dev.php/api/offers').then(function (response) {
+                var resp = response.data;
+                $scope.ofertas = resp.offers;
+            }, function (err) {
+                $scope.err = err;
+            });
+        }
+    }
 }]).controller('AboutController', ['$scope', function ($scope) {
 
-}]).controller('OfertaverController', ['$scope', '$stateParams', '$http', function ($scope, $stateParams, $http) {
-    $http.get('http://localhost:8080/Weganga/web/app_dev.php/api/offers/'+$stateParams.id).then(function (response) {
+}]).controller('OfertaverController', ['$scope', '$cookieStore', '$stateParams', '$http', '$state', function ($scope, $cookieStore,$stateParams, $http, $state) {
+    if ($cookieStore.get('user') != null && $cookieStore.get('user').role == 'ROLE_CLIENTE') {
+        $scope.isuser = true;
+    } else {
+        $scope.isuser = false;
+    }
+    $http.get('http://localhost:8080/Weganga/web/app_dev.php/api/offers/' + $stateParams.id).then(function (response) {
         $scope.resp = response.data;
-    },function (err) {
+    }, function (err) {
         $scope.err = err;
     });
 
-    $scope.aputarse = function () {
-
+    $scope.apuntarse = function () {
+        $http.post('http://localhost:8080/Weganga/web/app_dev.php/api/user/apuntarse',{client:$cookieStore.get('user').username,oferta:$stateParams.id}).then(function(response,status){
+            $state.go('user.ofertas');
+        });
     }
 
     $scope.desear = function () {
-
+        $http.post('http://localhost:8080/Weganga/web/app_dev.php/api/user/desear',{client:$cookieStore.get('user').username,oferta:$stateParams.id}).then(function(response,status){
+            $state.go('user.ofertas');
+        });
     }
 }]).controller('ContactController', ['$scope', function ($scope) {
 
 }]).controller('FaqsController', ['$scope', function ($scope) {
 
-}]).controller('PedidosController', ['$scope', function ($scope) {
-
+}]).controller('PedidosController', ['$scope', '$http',function ($scope, $http) {
+    $http.get('http://localhost:8080/Weganga/web/app_dev.php/api/requests').then(function (response) {
+        var resp = response.data;
+        $scope.requests = resp.requests;
+    }, function (err) {
+        $scope.err = err;
+    });
 }]).controller('WishlistController', ['$scope', function ($scope) {
 
 }]).controller('InviteController', ['$scope', function ($scope) {

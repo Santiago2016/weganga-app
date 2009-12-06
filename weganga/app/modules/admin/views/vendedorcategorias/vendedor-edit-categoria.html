@@ -1,5 +1,3 @@
-{{resp}}
-{{err}}
 <div class="row">
     <div class="col-xs-8 col-xs-offset-2">
         <form name="categoriaForm" ng-submit="updateCategoria()" class="form-horizontal" novalidate role="form">
@@ -10,7 +8,7 @@
                       ng-show="categoriaForm.nombre.$dirty && categoriaForm.nombre.$error.required">
                             Este campo es obligatorio</span>
                 <span class="error-message"
-                      ng-show="usuarioForm.nombre.$dirty && usuarioForm.nombre.$error.maxlength">
+                      ng-show="categoriaForm.nombre.$dirty && categoriaForm.nombre.$error.maxlength">
                             Ha sobrepasado el limite de caracteres</span>
             </div>
             <div class="form-group">
