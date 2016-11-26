@@ -1,0 +1,23 @@
+<div class="row">
+    <div class="col-xs-12">
+        <a role="button" class="btn btn-primary" ui-sref="admin.crearreglacarrito">Agregar</a>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="reglacarrito in response.shopcars">
+                <td>{{reglacarrito.name}}</td>
+                <td>{{reglacarrito.description}}</td>
+                <td>
+                    <a ui-sref="admin.editarreglacarrito({id:reglacarrito.id})" title="Editar" style="padding-right: 1em"><i class="fa fa-edit"></i></a>
+                    <a ng-click="eliminar(reglacarrito.id)" title="Eliminar" style="padding-right: 1em"><i class="fa fa-trash-o"></i></a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

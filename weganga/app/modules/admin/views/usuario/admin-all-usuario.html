@@ -1,0 +1,31 @@
+<div class="row">
+    {{eliminarval}}
+    <div class="col-xs-12">
+        <a role="button" class="btn btn-primary" ui-sref="admin.crearusuario">Agregar</a>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Telefono</th>
+                <th>Direccion</th>
+                <th>Rol</th>
+                <th>Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="usuario in response.users">
+                <td>{{usuario.nombre}} {{usuario.apellidos}}</td>
+                <td>{{usuario.email}}</td>
+                <td>{{usuario.telefono}}</td>
+                <td>{{usuario.direccion}}</td>
+                <td>{{usuario.role}}</td>
+                <td>
+                    <a ui-sref="admin.editarusuario({id:usuario.id})" title="Editar" style="padding-right: 1em"><i class="fa fa-edit"></i></a>
+                    <a ng-click="eliminar(usuario.id)" title="Eliminar" style="padding-right: 1em"><i class="fa fa-trash-o"></i></a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

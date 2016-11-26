@@ -1,0 +1,27 @@
+<div class="row">
+    <div class="col-xs-12">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Oferta</th>
+                <th>Vendedor</th>
+                <th>Cliente</th>
+                <th>Importe</th>
+                <th>Fecha</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="venta in response.sales">
+                <td>{{venta.offer_id}}</td>
+                <td>nombre vendedpr</td>
+                <td>{{venta.client_id}}</td>
+                <td>importe</td>
+                <td>{{venta.date}}</td>
+                <td>
+                    <a ng-click="eliminar(venta.id)" title="Eliminar" style="padding-right: 1em"><i class="fa fa-trash-o"></i></a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

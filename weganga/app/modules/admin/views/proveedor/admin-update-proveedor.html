@@ -1,0 +1,56 @@
+{{err}}
+<div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+        <form name="proveedorForm" ng-submit="updateProveedor()" class="form-horizontal" novalidate role="form">
+            <p>Personal details below</p>
+            <div class="form-group">
+                <input type="text" class="form-control1" placeholder="Nombre(s)" autofocus=""
+                       ng-model="proveedor.nombre" ng-required="true" ng-maxlength="80" name="nombre">
+                <span class="error-message"
+                      ng-show="proveedorForm.nombre.$dirty && proveedorForm.nombre.$error.required">
+                            Este campo es obligatorio</span>
+                <span class="error-message"
+                      ng-show="proveedorForm.nombre.$dirty && proveedorForm.nombre.$error.maxlength">
+                            Ha sobrepasado el limite de caracteres</span>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control1" placeholder="Email" autofocus="" name="email"
+                       ng-model="proveedor.email" ng-minlength="5" ng-maxlength="120">
+                <span class="error-message"
+                      ng-show="proveedorForm.email.$dirty && proveedorForm.email.$error.minlength">
+                            Debe introducir un email mas largo</span>
+                <span class="error-message"
+                      ng-show="proveedorForm.email.$dirty && proveedorForm.email.$error.maxlength">
+                            Ha sobrepasado el limite de caracteres</span>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control1" placeholder="Telefono" autofocus="" name="telefono"
+                       ng-model="proveedor.telefono" ng-required="true">
+                <span class="error-message"
+                      ng-show="proveedorForm.telefono.$dirty && proveedorForm.telefono.$error.required">
+                            Este campo es obligatorio</span>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control1" placeholder="comision" autofocus="" name="direccion"
+                       ng-model="proveedor.direccion">
+                <span class="error-message"
+                      ng-show="proveedorForm.direccion.$dirty && proveedorForm.direccion.$error.required">
+                            Este campo es obligatorio</span>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control1" placeholder="DNI" autofocus=""
+                       ng-model="proveedor.dni" name="dni" ng-required="true">
+                <span class="error-message"
+                      ng-show="proveedorForm.username.$dirty && proveedorForm.username.$error.required">
+                            Este campo es obligatorio</span>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-3">
+                    <button class="btn btn-lg btn-success1 btn-block" type="submit" ng-disabled="proveedorForm.$invalid">
+                        Submit
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
