@@ -1,0 +1,30 @@
+<div class="row">
+    <div class="col-xs-12">
+        <a role="button" class="btn btn-primary" ui-sref="admin.crearproveedor">Agregar</a>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Direccion</th>
+                <th>Telefono</th>
+                <th>Email</th>
+                <th>DNI</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="proveedor in response.providers">
+                <td>{{proveedor.nombre}} {{proveedor.apellidos}}</td>
+                <td>{{proveedor.direccion}}</td>
+                <td>{{proveedor.telefono}}</td>
+                <td>{{proveedor.email}}</td>
+                <td>{{proveedor.dni}}</td>
+                <td>
+                    <a title="Ver ofertas" style="padding-right: 1em"><i class="fa fa-eye"></i></a>
+                    <a ui-sref="admin.editarproveedor({id:proveedor.id})" title="Editar" style="padding-right: 1em"><i class="fa fa-edit"></i></a>
+                    <a ng-click="eliminar(proveedor.id)" title="Eliminar" style="padding-right: 1em"><i class="fa fa-trash-o"></i></a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

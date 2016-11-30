@@ -1,0 +1,86 @@
+{{err}}
+<div class="row">
+    <div class="col-xs-10 col-xs-offset-1">
+        <form name="usuarioForm" ng-submit="updateUsuario()" class="form-horizontal" novalidate role="form">
+            <div class="col-xs-5">
+                <p>Personal details below</p>
+                <div class="form-group">
+                    <input type="text" class="form-control1" placeholder="Nombre(s)" autofocus=""
+                           ng-model="usuario.nombre" ng-required="true" ng-maxlength="80" name="nombre">
+                    <span class="error-message"
+                          ng-show="usuarioForm.nombre.$dirty && usuarioForm.nombre.$error.required">
+                            Este campo es obligatorio</span>
+                    <span class="error-message"
+                          ng-show="usuarioForm.nombre.$dirty && usuarioForm.nombre.$error.maxlength">
+                            Ha sobrepasado el limite de caracteres</span>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control1" placeholder="Email" autofocus="" name="email"
+                           ng-model="usuario.email" ng-minlength="5" ng-maxlength="120">
+                    <span class="error-message"
+                          ng-show="usuarioForm.email.$dirty && usuarioForm.email.$error.minlength">
+                            Debe introducir un email mas largo</span>
+                    <span class="error-message"
+                          ng-show="usuarioForm.email.$dirty && usuarioForm.email.$error.maxlength">
+                            Ha sobrepasado el limite de caracteres</span>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control1" placeholder="Telefono" autofocus="" name="telefono"
+                           ng-model="usuario.telefono" ng-required="true">
+                    <span class="error-message"
+                          ng-show="usuarioForm.telefono.$dirty && usuarioForm.telefono.$error.required">
+                            Este campo es obligatorio</span>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control1" placeholder="comision" autofocus="" name="direccion"
+                           ng-model="usuario.direccion">
+                    <span class="error-message"
+                          ng-show="usuarioForm.direccion.$dirty && usuarioForm.direccion.$error.required">
+                            Este campo es obligatorio</span>
+                </div>
+            </div>
+            <div class="col-xs-2"></div>
+            <div class="col-xs-5">
+                <p>Account details below</p>
+                <div class="form-group">
+                    <input type="text" class="form-control1" placeholder="UserName" autofocus=""
+                           ng-model="usuario.username" name="username" ng-required="true">
+                    <span class="error-message"
+                          ng-show="usuarioForm.username.$dirty && usuarioForm.username.$error.required">
+                            Este campo es obligatorio</span>
+                </div>
+                <div class="form-group">
+                    <select name="rol" ng-model="usuario.role" ng-required="true" class="form-control">
+                        <option value="">Escoja el rol del usuario</option>
+                        <option value="ROLE_CLIENTE">Cliente</option>
+                        <option value="ROLE_VENDEDOR">Vendedor</option>
+                        <option value="ROLE_ADMIN">Administrador</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control1" placeholder="password" autofocus=""
+                           ng-model="usuario.password" name="password" ng-required="true">
+                    <span class="error-message"
+                          ng-show="usuarioForm.password.$dirty && usuarioForm.password.$error.required">
+                            Este campo es obligatorio</span>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control1" placeholder="confirm password" autofocus=""
+                           ng-model="usuario.confirmpassword" name="confirmpassword" ng-required="true">
+                    <span class="error-message"
+                          ng-show="usuarioForm.confirmpassword.$dirty && usuarioForm.confirmpassword.$error.required">
+                            Este campo es obligatorio</span>
+                </div>
+            </div>
+            <div class="col-xs-5"></div>
+            <div class="form-group">
+                <div class="col-xs-2">
+                    <button class="btn btn-lg btn-success1 btn-block" type="submit" ng-disabled="usuarioForm.$invalid">
+                        Submit
+                    </button>
+                </div>
+            </div>
+            <div class="col-xs-5"></div>
+        </form>
+    </div>
+</div>
