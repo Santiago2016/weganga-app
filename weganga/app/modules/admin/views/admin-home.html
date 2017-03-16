@@ -15,7 +15,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <h1><a class="navbar-brand" href="index.html">Weganga</a></h1>
+            <h1><a class="navbar-brand" ui-sref="user.ofertas">Weganga</a></h1>
         </div>
         <div class=" border-bottom">
             <div class="full-left">
@@ -23,7 +23,7 @@
                     <button id="toggle"><i class="fa fa-arrows-alt"></i></button>
                 </section>
                 <form class=" navbar-left-right">
-                    <input type="text" placeholder="Search...">
+                    <input type="text" placeholder="">
                     <input type="submit" value="" class="fa fa-search">
                 </form>
                 <div class="clearfix"></div>
@@ -43,49 +43,53 @@
                     <ul class="nav nav-pills nav-stacked" id="side-menu">
                         <li>
                             <a ui-sref="user.ofertas" class=" hvr-bounce-to-right"><i
-                                    class="fa fa-dashboard nav_icon "></i><span class="nav-label">Visitar sitio</span> </a>
+                                    class="fa fa-dashboard nav_icon "></i><span class="nav-label">{{'VISITARSITIO' | translate}}</span> </a>
+                        </li>
+                        <li>
+                            <a ui-sref="admin.informe" class=" hvr-bounce-to-right"><i
+                                    class="fa fa-dashboard nav_icon "></i><span class="nav-label">{{'INFORMES' | translate}}</span> </a>
                         </li>
                         <li>
                             <a ui-sref="admin.usuarios" class=" hvr-bounce-to-right"><i
-                                    class="fa fa-dashboard nav_icon "></i><span class="nav-label">Usuarios</span> </a>
+                                    class="fa fa-dashboard nav_icon "></i><span class="nav-label">{{'USUARIOS' | translate}}</span></a>
                         </li>
                         <li>
                             <a ui-sref="admin.categorias" class=" hvr-bounce-to-right"><i
-                                    class="fa fa-dashboard nav_icon "></i><span class="nav-label">Categorias</span> </a>
+                                    class="fa fa-dashboard nav_icon "></i><span class="nav-label">{{'CATEGORIAS' | translate}}</span> </a>
                         </li>
                         <li>
                             <a ui-sref="admin.proveedores" class=" hvr-bounce-to-right"><i
-                                    class="fa fa-dashboard nav_icon "></i><span class="nav-label">Proveedores</span> </a>
+                                    class="fa fa-dashboard nav_icon "></i><span class="nav-label">{{'VENDEDORES' | translate}}</span> </a>
                         </li>
 
                         <li>
                             <a ui-sref="admin.ventas" class=" hvr-bounce-to-right"><i
-                                    class="fa fa-dashboard nav_icon "></i><span class="nav-label">Ventas</span> </a>
+                                    class="fa fa-dashboard nav_icon "></i><span class="nav-label">{{'VENTAS' | translate}}</span> </a>
                         </li>
 
                         <li>
                             <a ui-sref="admin.ofertas" class=" hvr-bounce-to-right"><i
-                                    class="fa fa-dashboard nav_icon "></i><span class="nav-label">Ofertas</span> </a>
+                                    class="fa fa-dashboard nav_icon "></i><span class="nav-label">{{'OFFERS' | translate}}</span> </a>
                         </li>
 
                         <li>
                             <a ui-sref="admin.impuestos" class=" hvr-bounce-to-right"><i
-                                    class="fa fa-dashboard nav_icon "></i><span class="nav-label">Impuestos</span> </a>
+                                    class="fa fa-dashboard nav_icon "></i><span class="nav-label">{{'IMPUESTOS' | translate}}</span> </a>
                         </li>
 
                         <li>
                             <a ui-sref="admin.reglapromociones" class=" hvr-bounce-to-right"><i
-                                    class="fa fa-dashboard nav_icon "></i><span class="nav-label">Reglas de promocion</span> </a>
+                                    class="fa fa-dashboard nav_icon "></i><span class="nav-label">{{'REGLASPROMOCION' | translate}}</span> </a>
                         </li>
 
                         <li>
                             <a ui-sref="admin.reglacarritos" class=" hvr-bounce-to-right"><i
-                                    class="fa fa-dashboard nav_icon "></i><span class="nav-label">Reglas del carrito</span> </a>
+                                    class="fa fa-dashboard nav_icon "></i><span class="nav-label">{{'REGLASCARRITO' | translate}}</span> </a>
                         </li>
 
                         <li>
                             <a href ng-click="logout()" class=" hvr-bounce-to-right" ><i
-                                    class="fa fa-dashboard nav_icon "></i><span class="nav-label">Logout</span> </a>
+                                    class="fa fa-dashboard nav_icon "></i><span class="nav-label">{{'LOGOUT' | translate}}</span> </a>
                         </li>
 
                     </ul>
@@ -108,7 +112,7 @@
                 <div class="clearfix"></div>
             </div>
             <div class="copy">
-                <p>Design by <a href="http://carmasoluciones.com/" target="_blank">Carmasoluciones</a> </p>
+                <p>{{'DESIGNBY' | translate}} <a href="http://carmasoluciones.com/" target="_blank">Carmasoluciones</a> </p>
             </div>
         </div>
         <div class="clearfix"></div>

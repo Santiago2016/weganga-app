@@ -2,18 +2,16 @@
     <div class="container">
         <table class="table ">
             <tr>
-                <th class="t-head head-it ">Producto</th>
-                <th class="t-head">Precio</th>
-                <th class="t-head">Cantidad</th>
-                <th class="t-head">Fecha</th>
+                <th class="t-head head-it ">{{'PRODUCTO' | translate}}</th>
+                <th class="t-head">{{'COST' | translate}}</th>
+                <th class="t-head">{{'CANTIDAD' | translate}}</th>
+                <th class="t-head">{{'FECHA' | translate}}</th>
             </tr>
             <tr ng-repeat="request in requests">
-                <td>{{request.offer.name}}
-                </td>
+                <td>{{request.offer.name}}</td>
                 <td>{{request.offer.cost}}</td>
                 <td>{{request.quantity}}</td>
-                <td>{{request.date | date:'medium'}}</td>
-
+                <td>{{request.date | date:'short'}}</td>
             </tr>
         </table></div>
 </div>

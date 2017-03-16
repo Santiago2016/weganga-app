@@ -3,25 +3,25 @@
     <div class="col-xs-8 col-xs-offset-2">
         <form name="reglacarritoForm" ng-submit="updateReglacarrito()" class="form-horizontal" novalidate role="form">
             <div class="form-group">
-                <input type="text" class="form-control1" placeholder="Nombre(s)" autofocus=""
+                <input type="text" class="form-control1" placeholder="{{'NAME' | translate}}" autofocus=""
                        ng-model="reglacarrito.name" ng-required="true" ng-maxlength="50" name="nombre">
                 <span class="error-message"
                       ng-show="reglacarritoForm.nombre.$dirty && reglacarritoForm.nombre.$error.required">
-                            Este campo es obligatorio</span>
+                            {{'CAMPOOBLIGATORIO' | translate}}</span>
                 <span class="error-message"
                       ng-show="reglacarritoForm.nombre.$dirty && reglacarritoForm.nombre.$error.maxlength">
-                            Ha sobrepasado el limite de caracteres</span>
+                            {{'LIMITOVER' | translate}}</span>
             </div>
             <div class="form-group">
-                <textarea class="form-control1" placeholder="Descripcion" autofocus="" name="descripcion" ng-model="reglacarrito.description" ng-maxlength="120"></textarea>
+                <textarea class="form-control1" placeholder="{{'DESCRIPTION' | translate}}" autofocus="" name="descripcion" ng-model="reglacarrito.description" ng-maxlength="120"></textarea>
                 <span class="error-message"
                       ng-show="reglacarritoForm.descripcion.$dirty && reglacarritoForm.descripcion.$error.maxlength">
-                            Ha sobrepasado el limite de caracteres</span>
+                            {{'LIMITOVER' | translate}}</span>
             </div>
             <div class="form-group">
                 <div class="col-xs-3">
                     <button class="btn btn-lg btn-success1 btn-block" type="submit" ng-disabled="reglacarritoForm.$invalid">
-                        Submit
+                        {{'SUBMIT' | translate}}
                     </button>
                 </div>
             </div>

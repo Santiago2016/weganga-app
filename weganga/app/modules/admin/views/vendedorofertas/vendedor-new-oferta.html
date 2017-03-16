@@ -3,142 +3,214 @@
     <div class="col-xs-10 col-xs-offset-1">
         <form name="ofertaForm" ng-submit="saveOferta()" class="form-horizontal" novalidate role="form">
             <div class="col-xs-5">
-                <p>Personal details below</p>
                 <div class="form-group">
-                    <input type="text" class="form-control1" placeholder="Nombre(s)" autofocus=""
+                    <input type="text" class="form-control1" placeholder="{{'NAME' | translate}}" autofocus=""
                            ng-model="oferta.name" ng-required="true" ng-maxlength="80" name="nombre">
                     <span class="error-message"
                           ng-show="ofertaForm.nombre.$dirty && ofertaForm.nombre.$error.required">
-                            Este campo es obligatorio</span>
+                            {{'CAMPOOBLIGATORIO' | translate}}</span>
                     <span class="error-message"
                           ng-show="ofertaForm.nombre.$dirty && ofertaForm.nombre.$error.maxlength">
-                            Ha sobrepasado el limite de caracteres</span>
+                            {{'LIMITOVER' | translate}}</span>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control1" placeholder="Condiciones" autofocus=""
-                           ng-model="oferta.conditions" ng-required="true" ng-maxlength="80" name="conditions">
-                    <span class="error-message"
-                          ng-show="ofertaForm.conditions.$dirty && ofertaForm.conditions.$error.required">
-                            Este campo es obligatorio</span>
-                    <span class="error-message"
-                          ng-show="ofertaForm.conditions.$dirty && ofertaForm.conditions.$error.maxlength">
-                            Ha sobrepasado el limite de caracteres</span>
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control1" placeholder="Precio" autofocus=""
-                           ng-model="oferta.cost" ng-maxlength="100" name="cost">
-                    <span class="error-message"
-                          ng-show="ofertaForm.cost.$dirty && ofertaForm.cost.$error.maxlength">
-                            Ha sobrepasado el limite de caracteres</span>
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control1" placeholder="Mas Informacion" autofocus="" name="moreinfo"
-                           ng-model="oferta.moreinfo" ng-required="true">
-                    <span class="error-message"
-                          ng-show="ofertaForm.moreinfo.$dirty && ofertaForm.moreinfo.$error.required">
-                            Este campo es obligatorio</span>
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control1" placeholder="Lugar" autofocus="" name="place"
-                           ng-model="oferta.place">
+                    <input type="text" class="form-control1" placeholder="{{'NAME' | translate}}" autofocus=""
+                           ng-model="oferta.place" ng-required="true" ng-maxlength="80" name="place">
                     <span class="error-message"
                           ng-show="ofertaForm.place.$dirty && ofertaForm.place.$error.required">
-                            Este campo es obligatorio</span>
+                            {{'CAMPOOBLIGATORIO' | translate}}</span>
+                    <span class="error-message"
+                          ng-show="ofertaForm.place.$dirty && ofertaForm.place.$error.maxlength">
+                            {{'LIMITOVER' | translate}}</span>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control1" placeholder="Descripcion" autofocus=""
-                           ng-model="oferta.description" name="desc" ng-required="true">
+                    <select name="selector-year" id="selector-year" class="form-control1"
+                            ng-model="oferta.year" style="width: 32%">
+                        <option value="">{{'YEAR' | translate}}</option>
+                        <option value="2016">2016</option>
+                        <option value="2017">2017</option>
+                        <option value="2018">2018</option>
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                    </select>
+                    <select name="selector-mes" id="selector-mes" class="form-control1"
+                            ng-model="oferta.month" style="width: 32%">
+                        <option value="">{{'MONTH' | translate}}</option>
+                        <option value="1">01</option>
+                        <option value="2">02</option>
+                        <option value="3">03</option>
+                        <option value="4">04</option>
+                        <option value="5">05</option>
+                        <option value="6">06</option>
+                        <option value="7">07</option>
+                        <option value="8">08</option>
+                        <option value="9">09</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
+                    <select name="selector-dia" id="selector-dia" class="form-control1"
+                            ng-model="oferta.day" style="width: 32%">
+                        <option value="">{{'DAY' | translate}}</option>
+                        <option value="1">01</option>
+                        <option value="2">02</option>
+                        <option value="3">03</option>
+                        <option value="4">04</option>
+                        <option value="5">05</option>
+                        <option value="6">06</option>
+                        <option value="7">07</option>
+                        <option value="8">08</option>
+                        <option value="9">09</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                        <option value="24">24</option>
+                        <option value="25">25</option>
+                        <option value="26">26</option>
+                        <option value="27">27</option>
+                        <option value="28">28</option>
+                        <option value="29">29</option>
+                        <option value="30">30</option>
+                        <option value="31">31</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control1" placeholder="{{'COST' | translate}}" autofocus=""
+                           ng-model="oferta.cost" ng-maxlength="100" name="cost" ng-required="true">
+                    <span class="error-message"
+                          ng-show="ofertaForm.place.$dirty && ofertaForm.place.$error.required">
+                            {{'CAMPOOBLIGATORIO' | translate}}</span>
+                    <span class="error-message"
+                          ng-show="ofertaForm.cost.$dirty && ofertaForm.cost.$error.maxlength">
+                            {{'LIMITOVER' | translate}}</span>
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control1" placeholder="{{'CONDITIONS' | translate}}" autofocus="" name="conditions"
+                              ng-model="oferta.conditions" ng-maxlength="250" ng-required="true"></textarea>
+                    <span class="error-message"
+                          ng-show="ofertaForm.conditions.$dirty && ofertaForm.conditions.$error.required">
+                            {{'CAMPOOBLIGATORIO' | translate}}</span>
+                    <span class="error-message"
+                          ng-show="ofertaForm.conditions.$dirty && ofertaForm.conditions.$error.maxlength">
+                            {{'LIMITOVER' | translate}}</span>
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control1" placeholder="{{'DESCRIPTION' | translate}}" autofocus="" name="desc"
+                              ng-model="oferta.description" ng-maxlength="150" ng-required="true"></textarea>
                     <span class="error-message"
                           ng-show="ofertaForm.desc.$dirty && ofertaForm.desc.$error.required">
-                            Este campo es obligatorio</span>
+                            {{'CAMPOOBLIGATORIO' | translate}}</span>
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control1" placeholder="{{'MOREINFO' | translate" autofocus="" name="moreinfo"
+                              ng-model="oferta.moreinfo" ng-maxlength="150" ng-required="true"></textarea>
+                    <span class="error-message"
+                          ng-show="ofertaForm.moreinfo.$dirty && ofertaForm.moreinfo.$error.required">
+                            {{'CAMPOOBLIGATORIO' | translate}}</span>
+                </div>
+            </div>
+            <div class="col-xs-2"></div>
+            <div class="col-xs-5">
+                <div class="form-group">
+                    <input type="text" style="width: 48%" class="form-control1 pull-left" placeholder="{{'DE' | translate}} 1 {{'A' | translate}} 5" autofocus=""
+                           ng-model="oferta.rebaja1" name="rebaja1" ng-required="true">
+                    <span class="error-message"
+                          ng-show="ofertaForm.rebaja1.$dirty && ofertaForm.rebaja1.$error.required">
+                            {{'CAMPOOBLIGATORIO' | translate}}</span>
+                    <input type="text" style="width: 48%" class="form-control1 pull-right" placeholder="{{'DE' | translate}} 6 {{'A' | translate}} 10" autofocus=""
+                           ng-model="oferta.rebaja2" name="rebaja2" ng-required="true">
+                    <span class="error-message"
+                          ng-show="ofertaForm.rebaja2.$dirty && ofertaForm.rebaja2.$error.required">
+                            {{'CAMPOOBLIGATORIO' | translate}}</span>
+                </div>
+                <!--<div class="form-group">-->
+                    <!---->
+                <!--</div>-->
+                <div class="form-group">
+                    <input type="text" style="width: 48%" class="form-control1 pull-left" placeholder="{{'DE' | translate}} 11 {{'A' | translate}} 25" autofocus=""
+                           ng-model="oferta.rebaja3" name="rebaja3" ng-required="true">
+                    <span class="error-message"
+                          ng-show="ofertaForm.rebaja3.$dirty && ofertaForm.rebaja3.$error.required">
+                            {{'CAMPOOBLIGATORIO' | translate}}</span>
+                    <input type="text" style="width: 48%" class="form-control1 pull-right" placeholder="{{'DE' | translate}} 26 {{'A' | translate}} 50" autofocus=""
+                           ng-model="oferta.rebaja4" name="rebaja4" ng-required="true">
+                    <span class="error-message"
+                          ng-show="ofertaForm.rebaja4.$dirty && ofertaForm.rebaja4.$error.required">
+                            {{'CAMPOOBLIGATORIO' | translate}}</span>
+                </div>
+                <!--<div class="form-group">-->
+                    <!---->
+                <!--</div>-->
+                <div class="form-group">
+                    <input type="text" style="width: 48%" class="form-control1 pull-left" placeholder="{{'DE' | translate}} 51 {{'A' | translate}} 100" autofocus=""
+                           ng-model="oferta.rebaja5" name="rebaja5" ng-required="true">
+                    <span class="error-message"
+                          ng-show="ofertaForm.rebaja5.$dirty && ofertaForm.rebaja5.$error.required">
+                            {{'CAMPOOBLIGATORIO' | translate}}</span>
+                    <input type="text" style="width: 48%" class="form-control1 pull-right" placeholder="{{'DE' | translate}} 101 {{'A' | translate}} 250" autofocus=""
+                           ng-model="oferta.rebaja6" name="rebaja6" ng-required="true">
+                    <span class="error-message"
+                          ng-show="ofertaForm.rebaja6.$dirty && ofertaForm.rebaja6.$error.required">
+                            {{'CAMPOOBLIGATORIO' | translate}}</span>
+                </div>
+                <!--<div class="form-group">-->
+                    <!---->
+                <!--</div>-->
+                <div class="form-group">
+                    <input type="text" style="width: 48%" class="form-control1 pull-left" placeholder="{{'DE' | translate}} 251 {{'A' | translate}} 500" autofocus=""
+                           ng-model="oferta.rebaja7" name="rebaja7" ng-required="true">
+                    <span class="error-message"
+                          ng-show="ofertaForm.rebaja7.$dirty && ofertaForm.rebaja7.$error.required">
+                            {{'CAMPOOBLIGATORIO' | translate}}</span>
+                    <input type="text" style="width: 48%" class="form-control1 pull-right" placeholder="{{'DE' | translate}} 501 {{'A' | translate}} 1000" autofocus=""
+                           ng-model="oferta.rebaja8" name="rebaja8" ng-required="true">
+                    <span class="error-message"
+                          ng-show="ofertaForm.rebaja8.$dirty && ofertaForm.rebaja8.$error.required">
+                            {{'CAMPOOBLIGATORIO' | translate}}</span>
+                </div>
+                <!--<div class="form-group">-->
+                    <!---->
+                <!--</div>-->
+                <div class="form-group">
+                    <input type="text" style="width: 48%" class="form-control1 pull-left" placeholder="{{'DE' | translate}} 1001 {{'A' | translate}} 2500" autofocus=""
+                           ng-model="oferta.rebaja9" name="rebaja9" ng-required="true">
+                    <span class="error-message"
+                          ng-show="ofertaForm.rebaja9.$dirty && ofertaForm.rebaja9.$error.required">
+                            {{'CAMPOOBLIGATORIO' | translate}}</span>
+                    <input type="text" style="width: 48%" class="form-control1 pull-right" placeholder="{{'DE' | translate}} 2501 {{'A' | translate}} 5000" autofocus=""
+                           ng-model="oferta.rebaja10" name="rebaja10" ng-required="true">
+                    <span class="error-message"
+                          ng-show="ofertaForm.rebaja10.$dirty && ofertaForm.rebaja10.$error.required">
+                            {{'CAMPOOBLIGATORIO' | translate}}</span>
                 </div>
                 <div class="form-group">
                     <select name="selector-categorias" id="selector-categorias" class="form-control1"
                             ng-model="oferta.categorias" multiple
                             ng-options="categoria.id as categoria.name for categoria in categorias">
-                        <option value="">Escoja la categoria</option>
+                        <option value="">{{'ESCOJACATEGORIA' | translate}}</option>
                     </select>
                 </div>
-            </div>
-            <div class="col-xs-2"></div>
-            <div class="col-xs-5">
-                <p>Account details below</p>
-                <div class="form-group">
-                    <input type="text" class="form-control1" placeholder="de 1 a 5" autofocus=""
-                           ng-model="oferta.rebaja1" name="rebaja1" ng-required="true">
-                    <span class="error-message"
-                          ng-show="ofertaForm.rebaja1.$dirty && ofertaForm.rebaja1.$error.required">
-                            Este campo es obligatorio</span>
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control1" placeholder="de 6 a 10" autofocus=""
-                           ng-model="oferta.rebaja2" name="rebaja2" ng-required="true">
-                    <span class="error-message"
-                          ng-show="ofertaForm.rebaja2.$dirty && ofertaForm.rebaja2.$error.required">
-                            Este campo es obligatorio</span>
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control1" placeholder="de 11 a 25" autofocus=""
-                           ng-model="oferta.rebaja3" name="rebaja3" ng-required="true">
-                    <span class="error-message"
-                          ng-show="ofertaForm.rebaja3.$dirty && ofertaForm.rebaja3.$error.required">
-                            Este campo es obligatorio</span>
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control1" placeholder="de 26 a 50" autofocus=""
-                           ng-model="oferta.rebaja4" name="rebaja4" ng-required="true">
-                    <span class="error-message"
-                          ng-show="ofertaForm.rebaja4.$dirty && ofertaForm.rebaja4.$error.required">
-                            Este campo es obligatorio</span>
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control1" placeholder="de 51 a 100" autofocus=""
-                           ng-model="oferta.rebaja5" name="rebaja5" ng-required="true">
-                    <span class="error-message"
-                          ng-show="ofertaForm.rebaja5.$dirty && ofertaForm.rebaja5.$error.required">
-                            Este campo es obligatorio</span>
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control1" placeholder="de 101 a 250" autofocus=""
-                           ng-model="oferta.rebaja6" name="rebaja6" ng-required="true">
-                    <span class="error-message"
-                          ng-show="ofertaForm.rebaja6.$dirty && ofertaForm.rebaja6.$error.required">
-                            Este campo es obligatorio</span>
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control1" placeholder="de 251 a 500" autofocus=""
-                           ng-model="oferta.rebaja7" name="rebaja7" ng-required="true">
-                    <span class="error-message"
-                          ng-show="ofertaForm.rebaja7.$dirty && ofertaForm.rebaja7.$error.required">
-                            Este campo es obligatorio</span>
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control1" placeholder="de 501 a 1000" autofocus=""
-                           ng-model="oferta.rebaja8" name="rebaja8" ng-required="true">
-                    <span class="error-message"
-                          ng-show="ofertaForm.rebaja8.$dirty && ofertaForm.rebaja8.$error.required">
-                            Este campo es obligatorio</span>
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control1" placeholder="de 1001 a 2500" autofocus=""
-                           ng-model="oferta.rebaja9" name="rebaja9" ng-required="true">
-                    <span class="error-message"
-                          ng-show="ofertaForm.rebaja9.$dirty && ofertaForm.rebaja9.$error.required">
-                            Este campo es obligatorio</span>
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control1" placeholder="de 2501 a 5000" autofocus=""
-                           ng-model="oferta.rebaja10" name="rebaja10" ng-required="true">
-                    <span class="error-message"
-                          ng-show="ofertaForm.rebaja10.$dirty && ofertaForm.rebaja10.$error.required">
-                            Este campo es obligatorio</span>
-                </div>
+                <!--<div class="form-group">-->
+                    <!---->
+                <!--</div>-->
             </div>
             <div class="col-xs-5"></div>
             <div class="form-group">
                 <div class="col-xs-2">
-                    <button class="btn btn-lg btn-success1 btn-block" type="submit" ng-disabled="usuarioForm.$invalid">
-                        Submit
+                    <button class="btn btn-lg btn-success1 btn-block" type="submit" ng-disabled="ofertaForm.$invalid">
+                        {{'SUBMIT' | translate}}
                     </button>
                 </div>
             </div>

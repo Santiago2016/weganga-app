@@ -2,35 +2,35 @@
     <div class="col-xs-8 col-xs-offset-2">
         <form name="impuestoForm" ng-submit="saveImpuesto()" class="form-horizontal" novalidate role="form">
             <div class="form-group">
-                <input type="text" class="form-control1" placeholder="Nombre(s)" autofocus=""
+                <input type="text" class="form-control1" placeholder="{{'NAME' | translate}}" autofocus=""
                        ng-model="impuesto.nombre" ng-required="true" ng-maxlength="50" name="nombre">
                 <span class="error-message"
                       ng-show="impuestoForm.nombre.$dirty && impuestoForm.nombre.$error.required">
-                            Este campo es obligatorio</span>
+                            {{'CAMPOOBLIGATORIO' | translate}}</span>
                 <span class="error-message"
                       ng-show="impuestoForm.nombre.$dirty && impuestoForm.nombre.$error.maxlength">
-                            Ha sobrepasado el limite de caracteres</span>
+                            {{'LIMITOVER' | translate}}</span>
             </div>
             <div class="form-group">
-                <textarea class="form-control1" placeholder="Descripcion" autofocus="" name="descripcion" ng-model="impuesto.descripcion" ng-maxlength="120"></textarea>
+                <textarea class="form-control1" placeholder="{{'DESCRIPTION' | translate}}" autofocus="" name="descripcion" ng-model="impuesto.descripcion" ng-maxlength="120"></textarea>
                 <span class="error-message"
                       ng-show="impuestoForm.descripcion.$dirty && impuestoForm.descripcion.$error.maxlength">
-                            Ha sobrepasado el limite de caracteres</span>
+                            {{'LIMITOVER' | translate}}</span>
             </div>
             <div class="form-group">
-                <input type="text" class="form-control1" placeholder="Tasa" autofocus=""
+                <input type="text" class="form-control1" placeholder="{{'TASA' | translate}}" autofocus=""
                        ng-model="impuesto.tasa" ng-required="true" name="tasa">
                 <span class="error-message"
                       ng-show="impuestoForm.tasa.$dirty && impuestoForm.tasa.$error.required">
-                            Este campo es obligatorio</span>
+                            {{'CAMPOOBLIGATORIO' | translate}}</span>
                 <span class="error-message"
                       ng-show="impuestoForm.tasa.$dirty && impuestoForm.tasa.$error.maxlength">
-                            Ha sobrepasado el limite de caracteres</span>
+                            {{'LIMITOVER' | translate}}</span>
             </div>
             <div class="form-group">
                 <div class="col-xs-3">
                     <button class="btn btn-lg btn-success1 btn-block" type="submit" ng-disabled="impuestoForm.$invalid">
-                        Submit
+                        {{'SUBMIT' | translate}}
                     </button>
                 </div>
             </div>

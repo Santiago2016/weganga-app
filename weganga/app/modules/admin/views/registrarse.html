@@ -3,23 +3,23 @@
 <link href="css/font-awesomeadmin.css" rel="stylesheet">
 <link href="css/custom.css" rel="stylesheet">
 <div class="login">
-    <h1><a href="index.html">Minimal </a></h1>
+    <h1><a href="index.html">WEGANGA </a></h1>
     <div class="login-bottom">
         <h2>Register</h2>
-        <div ng-show="invalid" class="alert alert-danger">Invalid data</div>
-        <div ng-show="noequals" class="alert alert-danger">Los passwords deben ser iguales</div>
+        <div ng-show="invalid" class="alert alert-danger">{{'INVALIDDATA' | translate}}</div>
+        <div ng-show="noequals" class="alert alert-danger">{{'PASSWORDNOEQUALS' | translate}}</div>
         <form ng-submit="registrarse()">
         <div class="col-md-6">
             <div class="login-mail">
-                <input type="text" placeholder="Email" required="" ng-model="credentials.email">
+                <input type="text" placeholder="{{'EMAIL' | translate}}" required="" ng-model="credentials.email">
                 <i class="fa fa-envelope"></i>
             </div>
             <div class="login-mail">
-                <input type="password" placeholder="Password" required="" ng-model="credentials.password">
+                <input type="password" placeholder="{{'PASSWORD' | translate}}" required="" ng-model="credentials.password">
                 <i class="fa fa-lock"></i>
             </div>
             <div class="login-mail">
-                <input type="password" placeholder="Repeated password" required="" ng-model="credentials.confirmpassword">
+                <input type="password" placeholder="{{'REPEATEDPASSWORD' | translate}}" required="" ng-model="credentials.confirmpassword">
                 <i class="fa fa-lock"></i>
             </div>
             <!--<a class="news-letter" href="#">-->
@@ -29,10 +29,10 @@
         </div>
         <div class="col-md-6 login-do">
             <label class="hvr-shutter-in-horizontal login-sub">
-                <input type="submit" value="Submit">
+                <input type="submit" value="{{'SUBMIT' | translate}}">
             </label>
-            <p>Already register</p>
-            <a ui-sref="login" class="hvr-shutter-in-horizontal">Login</a>
+            <p>{{'YATIENECUENTA' | translate</p>
+            <a ui-sref="login" class="hvr-shutter-in-horizontal">{{'LOGIN' | translate}}</a>
         </div>
             </form>
         <div class="clearfix"> </div>
@@ -40,4 +40,4 @@
 </div>
 <!---->
 <div class="copy-right">
-    <p> &copy; 2016 Minimal. All Rights Reserved | Design by <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>	    </div>
+    <p> {{'DESIGNBY' | translate}} <a href="http:www.carmasoluciones.com/" target="_blank">Carmasoluciones</a> </p>	    </div>

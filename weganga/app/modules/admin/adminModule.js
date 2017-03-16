@@ -20,7 +20,7 @@ angular.module('weganga.admin').config(['$stateProvider', function ($stateProvid
             controller: 'AdminController',
             resolve: {
                  user: ['authService', '$q', function (authService, $q) {
-                         return authService.user || $q.reject({unAuthorized: true});
+                         return (authService.user.role == 'ROLE_ADMIN') || $q.reject({unAuthorized: true});
                      }]
             },
             templateUrl: 'modules/admin/views/admin-home.html'
@@ -30,7 +30,7 @@ angular.module('weganga.admin').config(['$stateProvider', function ($stateProvid
             controller: 'VendedorController',
             resolve: {
                 user: ['authService', '$q', function (authService, $q) {
-                    return authService.user || $q.reject({unAuthorized: true});
+                    return (authService.user.role == 'ROLE_VENDEDOR') || $q.reject({unAuthorized: true});
                 }]
             },
             templateUrl: 'modules/admin/views/vendedor-home.html'
@@ -130,6 +130,10 @@ angular.module('weganga.admin').config(['$stateProvider', function ($stateProvid
             url: '/categoria/listar',
             controller: 'AdminCategoriaListController',
             templateUrl: 'modules/admin/views/categoria/admin-all-categoria.html'
+        }).state('admin.informe', {
+            url: '/informe',
+            controller: 'AdminInformeController',
+            templateUrl: 'modules/admin/views/informe/informe-admin.html'
         }).state('registrarse', {
             url: '/registrarse',
             controller: 'RegistrarseController',
@@ -170,6 +174,10 @@ angular.module('weganga.admin').config(['$stateProvider', function ($stateProvid
             url: '/cargamasiva',
             controller: 'VendedorCargaMasivaController',
             templateUrl: 'modules/admin/views/vendedorcargamasiva/carga-masiva.html'
+        }).state('vendedor.informe', {
+            url: '/informe',
+            controller: 'VendedorInformeController',
+            templateUrl: 'modules/admin/views/informe/informe-vendedor.html'
         });
     }]).run(['$rootScope', '$state', '$cookieStore', 'authService', function ($rootScope, $state, $cookieStore, authService) {
 
@@ -178,7 +186,13 @@ angular.module('weganga.admin').config(['$stateProvider', function ($stateProvid
             if (error.unAuthorized) {
                 $state.go('login');
             } else if (error.authorized) {
-                $state.go('admin.usuarios');
+                if ($cookieStore.get('user').role == 'ROLE_ADMIN') {
+                    $state.go('admin.usuarios');
+                }else if ($cookieStore.get('user').role == 'ROLE_VENDEDOR'){
+                    $state.go('vendedor.ofertas');
+                }else{
+                    $state.go('user.ofertas')
+                }
             }
         });
 

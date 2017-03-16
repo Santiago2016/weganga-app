@@ -1,61 +1,59 @@
 <div class="content-mid">
-	<div class="single">
-		<div class="container">
-			<div class="single-top-main">
-				<div class="col-md-5 single-top">
-					<div class="single-w3agile">
+    <div class="single">
+        <div class="container">
+            <div class="single-top-main">
+                <div class="col-md-5 single-top">
+                    <div class="single-w3agile">
 
-						<div id="picture-frame">
-							<img src="images/si.jpg" data-src="images/si-1.jpg" alt="" class="img-responsive"/>
-						</div>
-						<script src="js/jquery.zoomtoo.js"></script>
-						<script>
-							$(function () {
-								$("#picture-frame").zoomToo({
-									magnify: 1
-								});
-							});
-						</script>
+                        <div id="picture-frame">
+                            <img src="images/si.jpg" data-src="images/si-1.jpg" alt="" class="img-responsive"/>
+                        </div>
+                        <script src="js/jquery.zoomtoo.js"></script>
+                        <script>
+                            $(function () {
+                                $("#picture-frame").zoomToo({
+                                    magnify: 1
+                                });
+                            });
+                        </script>
+                        <div class="add add-3">
+                            <button class="btn btn-danger my-cart-btn my-cart-b" ng-click="apuntarse()"
+                                    ng-show="isuser && !resp.retorno.apuntado" data-image="images/si.jpg">
+                                {{'AGREGARSEALACOMPRA' | translate}}
+                            </button>
+                            <button class="btn btn-danger my-cart-btn my-cart-b" ng-click="desear()"
+                                    ng-show="isuser && !resp.retorno.deseado" data-image="images/si.jpg">
+                                {{'AGREGARALISTADEDESEO' | translate}}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-7 single-top-left ">
+                    <div class="single-right">
+                        <h3>{{resp.retorno.offer.name}}</h3>
+                        <p class="in-pa reduced">
+                            <del>{{resp.retorno.offer.cost | currency}}</del>
+                            {{(resp.retorno.offer.cost - (resp.retorno.offer.cost * resp.retorno.offer.descuento / 100)) | currency}}
+                        </p>
+                        <p class="in-pa">{{'LUGAR' | translate}}: {{resp.retorno.offer.place}} y termina en {{resp.retorno.offer.enddate | date:'short'}}</p>
+                        <p class="in-pa">{{'DESCRIPTION' | translate}}: {{resp.retorno.offer.description}} </p>
+                        <p class="in-pa">{{'CONDITIONS' | translate}}: {{resp.retorno.offer.conditions}} </p>
+                        <p class="in-pa">{{'CATEGORIAS' | translate}}: <em ng-repeat="categoria in resp.retorno.offer.categorys"> <a ui-sref="user.categoriaofertas({name:categoria.name})">{{categoria.name}}</a> </em></p>
+                        <!--<div ng-repeat="categoria in resp.offer.categorys">-->
+                            <!--<p><a>{{categoria.name}}</a></p></div></p>-->
+                        <p class="in-pa">{{'MOREINFO' } translate}}: {{resp.retorno.offer.moreinfo}} </p>
+                    </div>
 
-
-					</div>
-				</div>
-				<div class="col-md-7 single-top-left ">
-					<div class="single-right">
-						<h3>{{resp.offer.name}}</h3>
-
-
-						<div class="pr-single">
-							<p class="reduced ">
-								<del>{{resp.offer.cost | currency}}</del>
-								{{(resp.offer.cost - (resp.offer.cost * resp.offer.descuento / 100)) | currency}}
-							</p>
-						</div>
-						<div class="block block-w3">
-							<div class="starbox small ghosting"></div>
-						</div>
-						<p class="in-pa"> {{resp.offer.description}} </p>
-
-						<div class="add add-3">
-							<button class="btn btn-danger my-cart-btn my-cart-b" ng-click="apuntarse()" ng-show="isuser" data-image="images/si.jpg">
-								Agregarse a la compra
-							</button>
-							<button class="btn btn-danger my-cart-btn my-cart-b" ng-click="desear()" ng-show="isuser" data-image="images/si.jpg">
-								Agregar a lista de deseo
-							</button>
-						</div>
-
-
-						<div class="clearfix"></div>
-					</div>
+                    <div class="clearfix"></div>
+                </div>
 
 
-				</div>
-				<div class="clearfix"></div>
-			</div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
 
 
-		</div>
-	</div>
+    </div>
+</div>
 
 </div>

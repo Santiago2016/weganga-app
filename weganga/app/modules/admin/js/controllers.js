@@ -336,20 +336,20 @@ angular.module('weganga.admin.controllers', []).controller('AdminCrearProveedorC
         }
     }
 
-    $scope.eliminar = function (id) {
-        if (popupService.showPopup('Desea eliminar este registro?')) {
-            $http.delete('http://localhost:8080/Weganga/web/app_dev.php/api/sales/' + id).then(function (response) {
-                $scope.eliminarval = response;
-                $http.get('http://localhost:8080/Weganga/web/app_dev.php/api/sales').then(function (response) {
-                    $scope.response = response.data;
-                }, function (err) {
-                    $scope.err = err;
-                });
-            }, function (err) {
-                $scope.err = err;
-            });
-        }
-    }
+    //$scope.eliminar = function (id) {
+    //    if (popupService.showPopup('Desea eliminar este registro?')) {
+    //        $http.delete('http://localhost:8080/Weganga/web/app_dev.php/api/sales/' + id).then(function (response) {
+    //            $scope.eliminarval = response;
+    //            $http.get('http://localhost:8080/Weganga/web/app_dev.php/api/sales').then(function (response) {
+    //                $scope.response = response.data;
+    //            }, function (err) {
+    //                $scope.err = err;
+    //            });
+    //        }, function (err) {
+    //            $scope.err = err;
+    //        });
+    //    }
+    //}
 }]).controller('AdminCrearUsuarioController', ['$scope', '$state', '$http', function ($scope, $state, $http) {
     $scope.saveUsuario = function () {
         if ($scope.usuario.password == $scope.usuario.confirmpassword) {
@@ -432,9 +432,10 @@ angular.module('weganga.admin.controllers', []).controller('AdminCrearProveedorC
             });
         }
     }
-}]).controller('AdminCrearCategoriaController', ['$scope', '$state', '$http', function ($scope, $state, $http) {
+}]).controller('AdminCrearCategoriaController', ['$scope', '$state', '$http', '$cookieStore',function ($scope, $state, $http, $cookieStore) {
     $scope.saveCategoria = function () {
         $http.post('http://localhost:8080/Weganga/web/app_dev.php/api/categorias', {
+            user: $cookieStore.get('user').id,
             name: $scope.categoria.nombre,
             description: $scope.categoria.descripcion
         }).then(function (response) {
@@ -566,19 +567,22 @@ angular.module('weganga.admin.controllers', []).controller('AdminCrearProveedorC
             $scope.buttonText = "Login";
         });
     }
-}]).controller('VendedorCrearOfertaController', ['$scope', '$state', '$http', 'user', function ($scope, $state, $http, user) {
+}]).controller('VendedorCrearOfertaController', ['$scope', '$state', '$http', '$cookieStore', function ($scope, $state, $http, $cookieStore) {
     $http.get('http://localhost:8080/Weganga/web/app_dev.php/api/categorias').then(function (response1) {
         $scope.categorias = response1.data.categorys;
     });
     $scope.saveOferta = function () {
         $http.post('http://localhost:8080/Weganga/web/app_dev.php/api/offers', {
-            provider: user.id,
+            provider: $cookieStore.get('user').id,
             name: $scope.oferta.name,
             conditions: $scope.oferta.conditions,
             cost: $scope.oferta.cost,
             moreinfo: $scope.oferta.moreinfo,
             place: $scope.oferta.place,
             description: $scope.oferta.description,
+            year: $scope.oferta.year,
+            month: $scope.oferta.month,
+            day: $scope.oferta.day,
             rebaja1: $scope.oferta.rebaja1,
             rebaja2: $scope.oferta.rebaja2,
             rebaja3: $scope.oferta.rebaja3,
@@ -598,8 +602,72 @@ angular.module('weganga.admin.controllers', []).controller('AdminCrearProveedorC
     }
 }]).controller('VendedorEditarOfertaController', ['$scope', '$state', function ($scope, $state) {
 
-}]).controller('VendedorListOfertaController', ['$scope', '$http', 'popupService', function ($scope, $http, popupService) {
-    $http.get('http://localhost:8080/Weganga/web/app_dev.php/api/offers').then(function (response) {
+}]).controller('AdminInformeController', ['$scope', '$state', '$http',function ($scope, $state, $http) {
+    $http.get('http://localhost:8080/Weganga/web/app_dev.php/api/providers').then(function (response) {
+        $scope.providers = response.data.providers;
+    }, function (err) {
+        $scope.err = err;
+    });
+
+    $http.get('http://localhost:8080/Weganga/web/app_dev.php/api/users').then(function (response) {
+        $scope.users = response.data.users;
+    }, function (err) {
+        $scope.err = err;
+    });
+
+    $scope.proveedorofertas = function () {
+        $http.post('http://localhost:8080/Weganga/web/app_dev.php/api/vendedor/ofertas',{usuario: $scope.informe.proveedor}).then(function (response) {
+            $scope.ofertasproveedor = response.data.offers;
+            $scope.proveedormostrar = true;
+            $scope.usuariomostrar = false;
+        }, function (err) {
+            $scope.err = err;
+        });
+    }
+
+    $scope.usuarioofertas = function () {
+        $http.post('http://localhost:8080/Weganga/web/app_dev.php/api/users/ofertas',{usuario: $scope.informe.usuario}).then(function (response) {
+            $scope.ofertasusuario = response.data.offers;
+            $scope.proveedormostrar = false;
+            $scope.usuariomostrar = true;
+        }, function (err) {
+            $scope.err = err;
+        });
+    }
+}]).controller('VendedorInformeController', ['$scope', '$state', '$http',function ($scope, $state, $http) {
+    $http.get('http://localhost:8080/Weganga/web/app_dev.php/api/users').then(function (response) {
+        $scope.users = response.data;
+    }, function (err) {
+        $scope.err = err;
+    });
+
+    $http.get('http://localhost:8080/Weganga/web/app_dev.php/api/offers').then(function (response1) {
+        $scope.offers = response1.data.offers;
+    }, function (err1) {
+        $scope.err1 = err1;
+    });
+
+    $scope.ofertausuarios = function () {
+        $http.post('http://localhost:8080/Weganga/web/app_dev.php/api/ofertas/users',{oferta: $scope.informe.oferta}).then(function (response) {
+            $scope.usersdata = response.data.users;
+            $scope.ofertamostrar = false;
+            $scope.usuariomostrar = true;
+        }, function (err) {
+            $scope.err = err;
+        });
+    }
+
+    $scope.usuarioofertas = function () {
+        $http.post('http://localhost:8080/Weganga/web/app_dev.php/api/users/ofertas',{usuario: $scope.informe.usuario}).then(function (response) {
+            $scope.offersdata = response.data.offers;
+            $scope.ofertamostrar = true;
+            $scope.usuariomostrar = false;
+        }, function (err) {
+            $scope.err = err;
+        });
+    }
+}]).controller('VendedorListOfertaController', ['$scope', '$http', 'popupService', '$cookieStore',function ($scope, $http, popupService, $cookieStore) {
+        $http.post('http://localhost:8080/Weganga/web/app_dev.php/api/vendedor/ofertas',{usuario: $cookieStore.get('user').username}).then(function (response) {
         $scope.response = response.data;
     }, function (err) {
         $scope.err = err;
@@ -635,13 +703,16 @@ angular.module('weganga.admin.controllers', []).controller('AdminCrearProveedorC
             });
         }
     }
-}]).controller('VendedorCrearCategoriaController', ['$scope', '$state', '$http', 'user', function ($scope, $state, $http, user) {
+}]).controller('VendedorCrearCategoriaController', ['$scope', '$state', '$http', '$cookieStore', function ($scope, $state, $http, $cookieStore) {
     $scope.saveCategoria = function () {
         $http.post('http://localhost:8080/Weganga/web/app_dev.php/api/categorias', {
+            user: $cookieStore.get('user').id,
             name: $scope.categoria.nombre,
             description: $scope.categoria.descripcion
         }).then(function (response) {
             $state.go('vendedor.categorias');
+        }, function(err){
+            $scope.err = err;
         });
     }
 }]).controller('VendedorEditarCategoriaController', ['$scope', '$stateParams', '$state', '$http', function ($scope, $stateParams, $state, $http) {
@@ -660,8 +731,8 @@ angular.module('weganga.admin.controllers', []).controller('AdminCrearProveedorC
             $state.go('vendedor.categorias');
         });
     }
-}]).controller('VendedorListCategoriaController', ['$scope', '$state', '$http', 'popupService', function ($scope, $state, $http, popupService) {
-    $http.get('http://localhost:8080/Weganga/web/app_dev.php/api/categorias').then(function (response) {
+}]).controller('VendedorListCategoriaController', ['$scope', '$state', '$http', 'popupService', '$cookieStore',function ($scope, $state, $http, popupService, $cookieStore) {
+    $http.post('http://localhost:8080/Weganga/web/app_dev.php/api/vendedor/categorias',{usuario: $cookieStore.get('user').id}).then(function (response) {
         $scope.response = response.data;
     }, function (err) {
         $scope.err = err;
