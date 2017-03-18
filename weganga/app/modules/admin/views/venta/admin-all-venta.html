@@ -1,25 +1,22 @@
 <div class="row">
     <div class="col-xs-12">
+        <div class="pull-right"><input type="text" name="filtro" ng-model="valor" placeholder="{{'TEXTOAFILTRAR' | translate}}">
+            <a role="button" class="btn btn-primary" ng-click="filtrar()">{{'FILTRAR' | translate}}</a></div>
         <table class="table">
             <thead>
             <tr>
-                <th>Oferta</th>
-                <th>Vendedor</th>
-                <th>Cliente</th>
-                <th>Importe</th>
-                <th>Fecha</th>
+                <th>{{'OFFER' | translate}}</th>
+                <th>{{'VENDEDOR' | translate}}</th>
+                <th>{{'IMPORTE' | translate}}</th>
+                <th>{{'FECHA' | translate}}</th>
             </tr>
             </thead>
             <tbody>
             <tr ng-repeat="venta in response.sales">
-                <td>{{venta.offer_id}}</td>
-                <td>nombre vendedpr</td>
-                <td>{{venta.client_id}}</td>
-                <td>importe</td>
-                <td>{{venta.date}}</td>
-                <td>
-                    <a ng-click="eliminar(venta.id)" title="Eliminar" style="padding-right: 1em"><i class="fa fa-trash-o"></i></a>
-                </td>
+                <td>{{venta.offer.name}}</td>
+                <td>{{venta.offer.provider.nombre}}</td>
+                <td>{{venta.quantity * (venta.offer.cost - (venta.offer.cost * venta.offer.descuento / 100))}}</td>
+                <td>{{venta.date | date:'short'}}</td>
             </tr>
             </tbody>
         </table>

@@ -2,25 +2,25 @@
     <div class="col-xs-8 col-xs-offset-2">
         <form name="reglapromocionForm" ng-submit="updateReglapromocion()" class="form-horizontal" novalidate role="form">
             <div class="form-group">
-                <input type="text" class="form-control1" placeholder="Nombre(s)" autofocus=""
+                <input type="text" class="form-control1" placeholder="{{'NAME' | translate}}" autofocus=""
                        ng-model="reglapromocion.name" ng-required="true" ng-maxlength="50" name="nombre">
                 <span class="error-message"
                       ng-show="reglapromocionForm.nombre.$dirty && reglapromocionForm.nombre.$error.required">
-                            Este campo es obligatorio</span>
+                            {{'CAMPOOBLIGATORIO' | translate}}</span>
                 <span class="error-message"
                       ng-show="reglapromocionForm.nombre.$dirty && reglapromocionForm.nombre.$error.maxlength">
-                            Ha sobrepasado el limite de caracteres</span>
+                            {{'LIMITOVER' | translate}}</span>
             </div>
             <div class="form-group">
-                <textarea class="form-control1" placeholder="Descripcion" autofocus="" name="descripcion" ng-model="reglapromocion.desciption" ng-maxlength="120"></textarea>
+                <textarea class="form-control1" placeholder="{{'Description' | translate}}" autofocus="" name="descripcion" ng-model="reglapromocion.desciption" ng-maxlength="120"></textarea>
                 <span class="error-message"
                       ng-show="reglapromocionForm.descripcion.$dirty && reglapromocionForm.descripcion.$error.maxlength">
-                            Ha sobrepasado el limite de caracteres</span>
+                            {{'LIMITOVER' | translate}}</span>
             </div>
             <div class="form-group">
                 <div class="col-xs-3">
                     <button class="btn btn-lg btn-success1 btn-block" type="submit" ng-disabled="reglapromocionForm.$invalid">
-                        Submit
+                        {{'SUBMIT' | translate}}
                     </button>
                 </div>
             </div>

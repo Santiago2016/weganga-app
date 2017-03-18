@@ -1,11 +1,13 @@
 <div class="row">
     <div class="col-xs-12">
-        <a role="button" class="btn btn-primary" ui-sref="admin.crearreglacarrito">Agregar</a>
+        <a role="button" class="btn btn-primary" ui-sref="admin.crearreglacarrito">{{'AGREGAR' | translate}}</a>
+        <div class="pull-right"><input type="text" name="filtro" ng-model="valor" placeholder="{{'TEXTOAFILTRAR' | translate}}">
+            <a role="button" class="btn btn-primary" ng-click="filtrar()">{{'FILTRAR' | translate}}</a></div>
         <table class="table">
             <thead>
             <tr>
-                <th>Nombre</th>
-                <th>Descripcion</th>
+                <th>{{'NAME' | translate}}</th>
+                <th>{{'DESCRIPTION' | translate}}</th>
             </tr>
             </thead>
             <tbody>
@@ -13,8 +15,8 @@
                 <td>{{reglacarrito.name}}</td>
                 <td>{{reglacarrito.description}}</td>
                 <td>
-                    <a ui-sref="admin.editarreglacarrito({id:reglacarrito.id})" title="Editar" style="padding-right: 1em"><i class="fa fa-edit"></i></a>
-                    <a ng-click="eliminar(reglacarrito.id)" title="Eliminar" style="padding-right: 1em"><i class="fa fa-trash-o"></i></a>
+                    <a ui-sref="admin.editarreglacarrito({id:reglacarrito.id})" title="{{'EDITAR' | translate}}" style="padding-right: 1em"><i class="fa fa-edit"></i></a>
+                    <a ng-click="eliminar(reglacarrito.id)" title="{{'ELIMINAR' | translate}}" style="padding-right: 1em"><i class="fa fa-trash-o"></i></a>
                 </td>
             </tr>
             </tbody>

@@ -1,13 +1,15 @@
 <div class="row">
     <div class="col-xs-12">
-        <a role="button" class="btn btn-primary" ui-sref="admin.crearproveedor">Agregar</a>
+        <a role="button" class="btn btn-primary pull-left" ui-sref="admin.crearproveedor">{{'AGREGAR' | translate}}</a>
+        <div class="pull-right"><input type="text" name="filtro" ng-model="valor" placeholder="{{'TEXTOAFILTRAR' | translate}}">
+            <a role="button" class="btn btn-primary" ng-click="filtrar()">{{'FILTRAR' | translate}}</a></div>
         <table class="table">
             <thead>
             <tr>
-                <th>Nombre</th>
-                <th>Direccion</th>
-                <th>Telefono</th>
-                <th>Email</th>
+                <th>{{'NAME' | translate}}</th>
+                <th>{{'DIRECCION' | translate}}</th>
+                <th>{{'TELEFONO' | translate}}</th>
+                <th>{{'EMAIL' | translate}}</th>
                 <th>DNI</th>
             </tr>
             </thead>
@@ -20,8 +22,10 @@
                 <td>{{proveedor.dni}}</td>
                 <td>
                     <a title="Ver ofertas" style="padding-right: 1em"><i class="fa fa-eye"></i></a>
-                    <a ui-sref="admin.editarproveedor({id:proveedor.id})" title="Editar" style="padding-right: 1em"><i class="fa fa-edit"></i></a>
-                    <a ng-click="eliminar(proveedor.id)" title="Eliminar" style="padding-right: 1em"><i class="fa fa-trash-o"></i></a>
+                    <a ui-sref="admin.editarproveedor({id:proveedor.id})" title="{{'EDITAR' | translate}}" style="padding-right: 1em"><i
+                            class="fa fa-edit"></i></a>
+                    <a ng-click="eliminar(proveedor.id)" title="{{'ELIMINAR' | translate}}" style="padding-right: 1em"><i
+                            class="fa fa-trash-o"></i></a>
                 </td>
             </tr>
             </tbody>

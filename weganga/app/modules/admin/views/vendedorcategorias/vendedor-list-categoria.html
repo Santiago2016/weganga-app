@@ -1,12 +1,15 @@
+{{err}}
 <div class="row">
     <div class="col-xs-12">
-        <a role="button" class="btn btn-primary" ui-sref="vendedor.crearcategoria">Agregar</a>
+        <a role="button" class="btn btn-primary" ui-sref="vendedor.crearcategoria">{{'AGREGAR' | translate}}</a>
+        <div class="pull-right"><input type="text" name="filtro" ng-model="valor" placeholder="{{'TEXTOAFILTRAR' | translate}}">
+            <a role="button" class="btn btn-primary" ng-click="filtrar()">{{'FILTRAR' | translate}}</a></div>
         <table class="table">
             <thead>
             <tr>
-                <th>Nombre</th>
-                <th>Descripcion</th>
-                <th>Acciones</th>
+                <th>{{'NAME' | translate}}</th>
+                <th>{{'DESCRIPTION' | translate}}</th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
@@ -14,8 +17,8 @@
                 <td>{{categoria.name}}</td>
                 <td>{{categoria.description}}</td>
                 <td>
-                    <a ui-sref="vendedor.editarcategoria({id:categoria.id})" title="Editar" style="padding-right: 1em"><i class="fa fa-edit"></i></a>
-                    <a ng-click="eliminar(categoria.id)" title="Eliminar" style="padding-right: 1em"><i class="fa fa-trash-o"></i></a>
+                    <a ui-sref="vendedor.editarcategoria({id:categoria.id})" title="{{'EDITAR' | translate}}" style="padding-right: 1em"><i class="fa fa-edit"></i></a>
+                    <a ng-click="eliminar(categoria.id)" title="{{'ELIMINAR' | translate}}" style="padding-right: 1em"><i class="fa fa-trash-o"></i></a>
                 </td>
             </tr>
             </tbody>

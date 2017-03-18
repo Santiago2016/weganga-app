@@ -1,14 +1,17 @@
+{{err}}
 <div class="row">
     <div class="col-xs-12">
-        <a role="button" class="btn btn-primary" ui-sref="vendedor.crearoferta">Agregar</a>
+        <a role="button" class="btn btn-primary" ui-sref="vendedor.crearoferta">{{'AGREGAR' | translate}}</a>
+        <div class="pull-right"><input type="text" name="filtro" ng-model="valor" placeholder="{{'TEXTOAFILTRAR' | translate}}">
+            <a role="button" class="btn btn-primary" ng-click="filtrar()">{{'FILTRAR' | translate}}</a></div>
         <table class="table">
             <thead>
             <tr>
-                <th>Nombre</th>
-                <th>Costo</th>
-                <th>Descuento</th>
-                <th>Compradores</th>
-                <th>Fecha</th>
+                <th>{{'NAME' | translate}}</th>
+                <th>{{'COST' | translate}}</th>
+                <th>{{'DESCUENTO' | translate}}</th>
+                <th>{{'COMPRADORES' | translate}}</th>
+                <th>{{'FECHA' | translate}}</th>
             </tr>
             </thead>
             <tbody>
@@ -17,9 +20,9 @@
                 <td>{{oferta.cost}}</td>
                 <td>{{oferta.descuento}}</td>
                 <td>{{oferta.cantrequest}}</td>
-                <td>{{oferta.date}}</td>
+                <td>{{oferta.date | date:'short'}}</td>
                 <td>
-                    <a ng-click="eliminar(oferta.id)" title="Eliminar" style="padding-right: 1em"><i class="fa fa-trash-o"></i></a>
+                    <a ng-click="eliminar(oferta.id)" title="{{'ELIMINAR' | translate}}" style="padding-right: 1em"><i class="fa fa-trash-o"></i></a>
                 </td>
             </tr>
             </tbody>
