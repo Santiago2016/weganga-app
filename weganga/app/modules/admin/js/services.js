@@ -97,18 +97,19 @@ angular.module('weganga.admin.services', []).factory('Post',['$resource','API_EN
 
 }]);
 
+var host = "http://localhost";
 
-angular.module('weganga.admin.services').value('API_PROVEEDORESENDPOINT','http://localhost:8080/Weganga/web/app_dev.php/api/proveedores/:id');
-angular.module('weganga.admin.services').value('API_OFERTASENDPOINT','http://localhost:8080/Weganga/web/app_dev.php/api/ofertas/:id');
-angular.module('weganga.admin.services').value('API_VENTASENDPOINT','http://localhost:8080/Weganga/web/app_dev.php/api/ventas/:id');
-angular.module('weganga.admin.services').value('API_IMPUESTOSENDPOINT','http://localhost:8080/Weganga/web/app_dev.php/api/impuestos/:id');
-angular.module('weganga.admin.services').value('API_CARRITOENDPOINT','http://localhost:8080/Weganga/web/app_dev.php/api/carrito/:id');
-angular.module('weganga.admin.services').value('API_PROMOCIONENDPOINT','http://localhost:8080/Weganga/web/app_dev.php/api/promocion/:id');
-angular.module('weganga.admin.services').value('API_GRUPOSENDPOINT','http://localhost:8080/Weganga/web/app_dev.php/api/grupos/:id');
-angular.module('weganga.admin.services').value('API_INFORMEVENTASENDPOINT','http://localhost:8080/Weganga/web/app_dev.php/api/informes/ventasadmin');
-angular.module('weganga.admin.services').value('API_INFORMECLIENTESENDPOINT','http://localhost:8080/Weganga/web/app_dev.php/api/informes/clientesadmin');
-angular.module('weganga.admin.services').value('AUTH_ENDPOINT','http://localhost:8080/Weganga/web/app_dev.php/api/login');
-angular.module('weganga.admin.services').value('LOGOUT_ENDPOINT','http://localhost:8080/Weganga/web/app_dev.php/api/logout');
+angular.module('weganga.admin.services').value('API_PROVEEDORESENDPOINT',host + '/Weganga/web/app_dev.php/api/proveedores/:id');
+angular.module('weganga.admin.services').value('API_OFERTASENDPOINT',host + '/Weganga/web/app_dev.php/api/ofertas/:id');
+angular.module('weganga.admin.services').value('API_VENTASENDPOINT',host + '/Weganga/web/app_dev.php/api/ventas/:id');
+angular.module('weganga.admin.services').value('API_IMPUESTOSENDPOINT',host + '/Weganga/web/app_dev.php/api/impuestos/:id');
+angular.module('weganga.admin.services').value('API_CARRITOENDPOINT',host + '/Weganga/web/app_dev.php/api/carrito/:id');
+angular.module('weganga.admin.services').value('API_PROMOCIONENDPOINT',host + '/Weganga/web/app_dev.php/api/promocion/:id');
+angular.module('weganga.admin.services').value('API_GRUPOSENDPOINT',host + '/Weganga/web/app_dev.php/api/grupos/:id');
+angular.module('weganga.admin.services').value('API_INFORMEVENTASENDPOINT',host + '/Weganga/web/app_dev.php/api/informes/ventasadmin');
+angular.module('weganga.admin.services').value('API_INFORMECLIENTESENDPOINT',host + '/Weganga/web/app_dev.php/api/informes/clientesadmin');
+angular.module('weganga.admin.services').value('AUTH_ENDPOINT',host + '/Weganga/web/app_dev.php/api/login');
+angular.module('weganga.admin.services').value('LOGOUT_ENDPOINT',host + '/Weganga/web/app_dev.php/api/logout');
 
 /**
  * Uncomment the following and comment the above three value services to use local endpoints.Make sure the local server

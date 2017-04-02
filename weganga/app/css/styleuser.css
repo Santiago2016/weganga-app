@@ -20,7 +20,10 @@ body a{
 h1,h2,h3,h4,h5,h6{
 	margin:0;
 	font-family: 'Montserrat', sans-serif;	
-}	
+}
+.con-w3l{
+    padding-top: 4em;
+}
 p,label{
 	margin:0;
 }
@@ -173,7 +176,7 @@ img.img-head {
 /*-- header --*/
 .header {
     text-align: center;
-	margin-top: 2em;
+	margin-top: 5px;
 }
 .logo h1{
    font-family: 'Montserrat', sans-serif;
@@ -207,7 +210,7 @@ img.img-head {
     line-height: 8px;
 }
 .head-t {
-    margin: 1em 0;
+    margin: 5px 0;
 }
 .card li{
 	display:inline-block;
@@ -516,19 +519,19 @@ span.fa.fa-shopping-cart.my-cart-icon {
     -ms-transition: 0.5s all;
 }
  ::-webkit-input-placeholder{
-	color:#fff;
+	color:black;
 }
 
 :-moz-placeholder { /* Firefox 18- */
-   color: #fff; 
+   color: black;
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
-   color: #fff;  
+   color: black;
 }
 
 :-ms-input-placeholder {  
-   color: #fff;  
+   color: black;
 }
 /*-- //to-top --*/
 .spec {
@@ -641,10 +644,10 @@ ul.nav.tabs {
 	margin-right:6px;
 }
 .mid-2 {
-    padding: 1em 0;
+    padding: 7px 0;
 }
 .mid-1 {
-    padding: 3em 0 0;
+    padding: 9px 4px;
 }
 .block {
     float: right;
@@ -653,7 +656,7 @@ ul.nav.tabs {
 	text-align:center;
 }
 .col-m {
-    padding: 1em;
+    padding: 5px;
     border: 1px solid #B2B2B2;
 }
 .offer-img{
@@ -662,7 +665,7 @@ ul.nav.tabs {
 }
 .offer-img img{
 	margin:0 auto;
-	width: 55%;
+	width: 100%;
 }
 .offer{
 	    position: absolute;
@@ -986,14 +989,14 @@ ul.product-qty {
     padding-bottom: 20px;
 }
 .content-mid {
-    padding: 6em 0;
+    padding: 10px
 }
 /*--content-mid--*/
 .product {
-	padding:8em 0 6em;
+	padding:10px;
 }
 .pro-1 {
-    margin-bottom: 2em;
+    margin-bottom: 1em;
 }
 /*--causel--*/
 .carousel-indicators {
@@ -2029,7 +2032,7 @@ p.in-pa{
 	float:none;
 }
 .single {
-    padding: 7em 0 0;
+    padding: 3em 0 0;
 }
 .con-sin{
 	margin:0;
@@ -2354,7 +2357,7 @@ p.fo-para {
     height: 210px;
 }
 .content-mid {
-    padding: 4em 0;
+    padding: 10px 0;
 }
 .nav > li > a {
     padding: 12px 17px !important;
@@ -2708,7 +2711,7 @@ nav.navbar {
     padding:3em 0 2em;
 }
 .content-mid {
-    padding: 2em 0;
+    padding: 10px 0;
 }
 p.fo-para {
     width: 95%;
@@ -2831,10 +2834,10 @@ nav.navbar.navbar-default {
     padding: 0 3px;
 }
 .mid-1 {
-    padding: 2em 0 0;
+    padding: 0px;
 }
 .col-m {
-    padding: 0.5em;
+    padding: 2px !important;
 }
 .mid-1 h6 {
     font-size: 0.85em;
@@ -2862,7 +2865,7 @@ nav.navbar.navbar-default {
     font-size: 2.2em;
 }
 .pro-1 {
-    padding: 0 5px;
+    padding: 0 2px;
 }
 .banner-info {
     margin: 2em 0;

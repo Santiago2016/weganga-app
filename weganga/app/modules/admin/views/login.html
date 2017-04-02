@@ -2,10 +2,9 @@
 <link href="css/styleadmin.css" rel='stylesheet' type='text/css'/>
 <link href="css/font-awesomeadmin.css" rel="stylesheet">
 <link href="css/custom.css" rel="stylesheet">
-{{err}}
 <div class="login">
     <h1><a href="index.html">WEGANGA </a></h1>
-    <div class="login-bottom">
+    <div class="login-bottom" style="border: 2px solid #d95459;">
         <h2>Login</h2>
         <div ng-show="invalidLogin" class="alert alert-danger">{{'INVALIDUSERNAME' | translate}}</div>
         <form ng-submit="login()">
@@ -15,7 +14,7 @@
                     <i class="fa fa-envelope"></i>
                 </div>
                 <div class="login-mail">
-                    <input type="password" placeholder="{{'PASSWORD'}} | translate}}" ng-model="credentials.password" ng-required="true">
+                    <input type="password" placeholder="{{'PASSWORD' | translate}}" ng-model="credentials.password" ng-required="true">
                     <i class="fa fa-lock"></i>
                 </div>
                 <a class="news-letter " ui-sref="forgotpassword">

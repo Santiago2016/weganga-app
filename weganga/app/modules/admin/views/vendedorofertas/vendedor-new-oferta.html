@@ -1,5 +1,4 @@
 <div class="row">
-    {{err}}
     <div class="col-xs-10 col-xs-offset-1">
         <form name="ofertaForm" ng-submit="saveOferta()" class="form-horizontal" novalidate role="form">
             <div class="col-xs-5">
@@ -14,7 +13,7 @@
                             {{'LIMITOVER' | translate}}</span>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control1" placeholder="{{'NAME' | translate}}" autofocus=""
+                    <input type="text" class="form-control1" placeholder="{{'LUGAR' | translate}}" autofocus=""
                            ng-model="oferta.place" ng-required="true" ng-maxlength="80" name="place">
                     <span class="error-message"
                           ng-show="ofertaForm.place.$dirty && ofertaForm.place.$error.required">
@@ -24,7 +23,7 @@
                             {{'LIMITOVER' | translate}}</span>
                 </div>
                 <div class="form-group">
-                    <select name="selector-year" id="selector-year" class="form-control1"
+                    <select name="selector-year" title="{{'EXPIREDATE' | translate}}" id="selector-year" class="form-control1"
                             ng-model="oferta.year" style="width: 32%">
                         <option value="">{{'YEAR' | translate}}</option>
                         <option value="2016">2016</option>
@@ -107,19 +106,24 @@
                             {{'LIMITOVER' | translate}}</span>
                 </div>
                 <div class="form-group">
-                    <textarea class="form-control1" placeholder="{{'DESCRIPTION' | translate}}" autofocus="" name="desc"
+                    <textarea class="form-control1" placeholder="{{'DESCRIPCION' | translate}}" autofocus="" name="desc"
                               ng-model="oferta.description" ng-maxlength="150" ng-required="true"></textarea>
                     <span class="error-message"
                           ng-show="ofertaForm.desc.$dirty && ofertaForm.desc.$error.required">
                             {{'CAMPOOBLIGATORIO' | translate}}</span>
                 </div>
                 <div class="form-group">
-                    <textarea class="form-control1" placeholder="{{'MOREINFO' | translate" autofocus="" name="moreinfo"
+                    <textarea class="form-control1" placeholder="{{'MOREINFO' | translate}}" autofocus="" name="moreinfo"
                               ng-model="oferta.moreinfo" ng-maxlength="150" ng-required="true"></textarea>
                     <span class="error-message"
                           ng-show="ofertaForm.moreinfo.$dirty && ofertaForm.moreinfo.$error.required">
                             {{'CAMPOOBLIGATORIO' | translate}}</span>
                 </div>
+
+                 <div class="form-group">
+                     <input type="file" ng-model="foto" accept="image/*" base-sixty-four-input/>
+                </div>
+               
             </div>
             <div class="col-xs-2"></div>
             <div class="col-xs-5">

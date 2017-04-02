@@ -6,7 +6,7 @@
 
 <div id="wrapper">
 
-    <!----->
+    
     <nav class="navbar-default navbar-static-top" role="navigation">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -26,10 +26,25 @@
                     <input type="text" placeholder="">
                     <input type="submit" value="" class="fa fa-search">
                 </form>
+
                 <div class="clearfix"></div>
             </div>
 
-
+            <div class="btn-group btn-toggle pull-right" style="padding-right: 20px; padding-top: 15px">
+                <img ng-class="{en:'active'}[languagePreference.currentLanguage]" ng-show="languagePreference.currentLanguage == 'es'"
+                     ng-click="languagePreference.switchLanguage('en')" src="images/Flag_of_the_United_Kingdom.svg.png"
+                     height="20px" width="30px" style="opacity: 0.6"/>
+                <img ng-class="{en:'active'}[languagePreference.currentLanguage]" ng-show="languagePreference.currentLanguage == 'en'"
+                     ng-click="languagePreference.switchLanguage('en')" src="images/Flag_of_the_United_Kingdom.svg.png"
+                     height="23px" width="35px" style="border: 1px solid black"/>
+                <img ng-class="{es:'active'}[languagePreference.currentLanguage]" ng-show="languagePreference.currentLanguage == 'en'"
+                     ng-click="languagePreference.switchLanguage('es')" src="images/Flag_of_Spain.svg.png"
+                     height="20px" width="30px" style="opacity: 0.6"/>
+                <img ng-class="{es:'active'}[languagePreference.currentLanguage]" ng-show="languagePreference.currentLanguage == 'es'"
+                     ng-click="languagePreference.switchLanguage('en')" src="images/Flag_of_Spain.svg.png"
+                     height="23px" width="35px" style="border: 1px solid black"/>
+            </div>
+            
             <!-- Brand and toggle get grouped for better mobile display -->
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -40,7 +55,7 @@
 
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
-                    <ul class="nav nav-pills nav-stacked" id="side-menu">
+                    <ul class="nav nav-pills nav-stacked" on-click-make-active id="side-menu">
                         <li>
                             <a ui-sref="user.ofertas" class=" hvr-bounce-to-right"><i
                                     class="fa fa-dashboard nav_icon "></i><span class="nav-label">{{'VISITARSITIO' | translate}}</span> </a>

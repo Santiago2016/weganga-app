@@ -1,4 +1,4 @@
-{{err}}
+
 <div class="row">
     <div class="col-xs-12">
         <a role="button" class="btn btn-primary" ui-sref="vendedor.crearoferta">{{'AGREGAR' | translate}}</a>
@@ -22,6 +22,7 @@
                 <td>{{oferta.cantrequest}}</td>
                 <td>{{oferta.date | date:'short'}}</td>
                 <td>
+                    <a ui-sref="vendedor.editaroferta({id:oferta.id})" title="{{'EDITAR' | translate}}" style="padding-right: 1em"><i class="fa fa-edit"></i></a>
                     <a ng-click="eliminar(oferta.id)" title="{{'ELIMINAR' | translate}}" style="padding-right: 1em"><i class="fa fa-trash-o"></i></a>
                 </td>
             </tr>
