@@ -1,5 +1,5 @@
 <div class="row">
-    {{eliminarval}}
+
     <div class="col-xs-12">
         <a role="button" class="btn btn-primary" ui-sref="admin.crearusuario">{{'AGREGAR' | translate}}</a>
         <div class="pull-right"><input type="text" name="filtro" ng-model="valor" placeholder="{{'TEXTOAFILTRAR' | translate}}">
@@ -21,7 +21,7 @@
                 <td>{{usuario.email}}</td>
                 <td>{{usuario.telefono}}</td>
                 <td>{{usuario.direccion}}</td>
-                <td>{{usuario.role}}</td>
+                <td>{{usuario.role | translate }}</td>
                 <td>
                     <a ui-sref="admin.editarusuario({id:usuario.id})" title="{{'EDITAR' | translate}}" style="padding-right: 1em"><i class="fa fa-edit"></i></a>
                     <a ng-click="eliminar(usuario.id)" title="{{'ELIMINAR' | translate}}" style="padding-right: 1em"><i class="fa fa-trash-o"></i></a>

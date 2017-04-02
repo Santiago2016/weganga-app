@@ -14,6 +14,9 @@
             </tr>
             </thead>
             <tbody>
+            <tr ng-show="loading">
+               <td>Obteniendo datos...</td>
+            </tr>
             <tr ng-repeat="proveedor in response.providers">
                 <td>{{proveedor.nombre}} {{proveedor.apellidos}}</td>
                 <td>{{proveedor.direccion}}</td>

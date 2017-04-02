@@ -11,25 +11,42 @@
 <link rel="stylesheet" href="css/jstarbox.css">
 <link rel="stylesheet" href="css/styleuser.css">
 <div class="header">
-    <div class="btn-group btn-toggle">
-        <button class="btn btn-default" ng-class="{en:'active'}[languagePreference.currentLanguage]" ng-click="languagePreference.switchLanguage('en')" >English</button>
-        <button class="btn btn-default" ng-class="{es:'active'}[languagePreference.currentLanguage]" ng-click="languagePreference.switchLanguage('es')">Español</button>
+    <div class="btn-group btn-toggle pull-right" style="padding-right: 20px;">
+        <img ng-class="{en:'active'}[languagePreference.currentLanguage]" ng-show="languagePreference.currentLanguage == 'es'"
+             ng-click="languagePreference.switchLanguage('en')" src="images/Flag_of_the_United_Kingdom.svg.png"
+             height="20px" width="30px" style="opacity: 0.6"/>
+        <img ng-class="{en:'active'}[languagePreference.currentLanguage]" ng-show="languagePreference.currentLanguage == 'en'"
+             ng-click="languagePreference.switchLanguage('en')" src="images/Flag_of_the_United_Kingdom.svg.png"
+             height="23px" width="35px" style="border: 1px solid black"/>
+        <img ng-class="{es:'active'}[languagePreference.currentLanguage]" ng-show="languagePreference.currentLanguage == 'en'"
+             ng-click="languagePreference.switchLanguage('es')" src="images/Flag_of_Spain.svg.png"
+             height="20px" width="30px" style="opacity: 0.6"/>
+        <img ng-class="{es:'active'}[languagePreference.currentLanguage]" ng-show="languagePreference.currentLanguage == 'es'"
+             ng-click="languagePreference.switchLanguage('en')" src="images/Flag_of_Spain.svg.png"
+             height="23px" width="35px" style="border: 1px solid black"/>
     </div>
     <div class="container">
 
         <div class="logo">
-            <h1><a ui-sref="user.ofertas">Weganga</a></h1>
-        </div>
+            <img src="images/logo-weganga.JPG" height="140px" width="800px"></div>
         <div class="head-t">
             <ul class="card">
-                <li ng-show="logueado"><a ui-sref="user.wishlist"><i class="fa fa-heart" aria-hidden="true"></i>{{'WISHLIST' | translate}}</a></li>
-                <li ng-show="!logueado"><a ui-sref="login"><i class="fa fa-user" aria-hidden="true"></i>{{'LOGIN' | translate}}</a></li>
-                <li ng-show="logueado"><a href ng-click="salir()"><i class="fa fa-user" aria-hidden="true"></i>{{'LOGOUT' | translate}}</a></li>
-                <li ng-show="logueado && nouser"><a ui-sref="login"><i class="fa fa-cogs" aria-hidden="true"></i>{{'MANAGE' | translate}}</a></li>
-                <li ng-show="!logueado"><a ui-sref="registrarse"><i class="fa fa-arrow-right" aria-hidden="true"></i>{{'REGISTER' | translate}}</a></li>
-                <li ng-show="logueado"><a ui-sref="user.pedidos"><i class="fa fa-file-text-o" aria-hidden="true"></i>{{'ORDERHISTORY' | translate}}</a></li>
-                <li ng-show="logueado"><a ui-sref="user.invite"><i class="fa fa-group" aria-hidden="true"></i>{{'INVITE' | translate}}</a></li>
-                <li><a ui-sref="user.about"><i class="fa fa-question" aria-hidden="true"></i>{{'ABOUT' | translate}}</a></li>
+                <li ng-show="logueado"><a ui-sref="user.wishlist"><i class="fa fa-heart" aria-hidden="true"></i>{{'WISHLIST'
+                    | translate}}</a></li>
+                <li ng-show="!logueado"><a ui-sref="login"><i class="fa fa-user" aria-hidden="true"></i>{{'LOGIN' |
+                    translate}}</a></li>
+                <li ng-show="logueado"><a href ng-click="salir()"><i class="fa fa-user" aria-hidden="true"></i>{{'LOGOUT'
+                    | translate}}</a></li>
+                <li ng-show="logueado && nouser"><a ui-sref="login"><i class="fa fa-cogs" aria-hidden="true"></i>{{'MANAGE'
+                    | translate}}</a></li>
+                <li ng-show="!logueado"><a ui-sref="registrarse"><i class="fa fa-arrow-right" aria-hidden="true"></i>{{'REGISTER'
+                    | translate}}</a></li>
+                <li ng-show="logueado"><a ui-sref="user.pedidos"><i class="fa fa-file-text-o" aria-hidden="true"></i>{{'ORDERHISTORY'
+                    | translate}}</a></li>
+                <li ng-show="logueado"><a ui-sref="user.invite"><i class="fa fa-group" aria-hidden="true"></i>{{'INVITE'
+                    | translate}}</a></li>
+                <li><a ui-sref="user.about"><i class="fa fa-question" aria-hidden="true"></i>{{'ABOUT' | translate}}</a>
+                </li>
             </ul>
         </div>
         <div class="nav-top">
@@ -47,14 +64,21 @@
 
                 </div>
                 <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
-                    <ul class="nav navbar-nav ">
-                        <li class=" active"><a ui-sref="user.ofertas" class="hyper "><span>{{'HOME' | translate}}</span></a></li>
-                        <li><a ui-sref="user.ofertasdia" class="hyper "><span>{{'DAILYDEALS' | translate}}</span></a></li>
-                        <li><a ui-sref="user.ofertaselectrodomesticos" class="hyper "><span>{{'DOMESTICAPPLIANCES' | translate}}</span></a></li>
-                        <li><a ui-sref="user.ofertaselectronica" class="hyper "><span>{{'ELECTRONICSUPLIES' | translate}}</span></a></li>
-                        <li><a ui-sref="user.ofertashogar" class="hyper "><span>{{'HOMESWEETHOME' | translate}}</span></a></li>
-                        <li><a ui-sref="user.ofertasaccesorios" class="hyper "><span>{{'ACCESSORIES' | translate}}</span></a></li>
-                        <li><a ui-sref="user.ofertasexterior" class="hyper"> <span>{{'OUTLET' | translate}}</span></a></li>
+                    <ul class="nav navbar-nav " on-click-make-active>
+                        <li class=" active"><a ui-sref="user.ofertas" class="hyper "><span>{{'HOME' | translate}}</span></a>
+                        </li>
+                        <li><a ui-sref="user.ofertasdia" class="hyper "><span>{{'DAILYDEALS' | translate}}</span></a>
+                        </li>
+                        <li><a ui-sref="user.ofertaselectrodomesticos" class="hyper "><span>{{'DOMESTICAPPLIANCES' | translate}}</span></a>
+                        </li>
+                        <li><a ui-sref="user.ofertaselectronica" class="hyper "><span>{{'ELECTRONICSUPLIES' | translate}}</span></a>
+                        </li>
+                        <li><a ui-sref="user.ofertashogar"
+                               class="hyper "><span>{{'HOMESWEETHOME' | translate}}</span></a></li>
+                        <li><a ui-sref="user.ofertasaccesorios"
+                               class="hyper "><span>{{'ACCESSORIES' | translate}}</span></a></li>
+                        <li><a ui-sref="user.ofertasexterior" class="hyper"> <span>{{'OUTLET' | translate}}</span></a>
+                        </li>
                     </ul>
                 </div>
             </nav>
@@ -79,8 +103,8 @@
                 <li><a ui-sref="user.faqs">{{'FAQEXTENDED' | translate}}</a></li>
                 <li><a ui-sref="user.contact">{{'CONTACT' | translate}}</a></li>
                 <li><a ui-sref="user.invite">{{'INVITE' | translate}}</a></li>
-                <li><a >{{'SHIPPING' | translate}}</a></li>
-                <li><a >{{'TERMS' | translate}}</a></li>
+                <li><a>{{'SHIPPING' | translate}}</a></li>
+                <li><a>{{'TERMS' | translate}}</a></li>
             </ul>
         </div>
         <div class="col-md-4 footer-grid">
@@ -116,7 +140,8 @@
 
             </div>
             <div class="copy-right">
-                <p> {{'DESIGNBY' | translate}} <a href="http://www.carmasoluciones.com/" target="_blank">Carmasoluciones</a> </p>	    </div>
+                <p> {{'DESIGNBY' | translate}} <a href="http://www.carmasoluciones.com/"
+                                                  target="_blank">Carmasoluciones</a></p></div>
         </div>
     </div>
 </div>
